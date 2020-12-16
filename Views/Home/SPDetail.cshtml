@@ -1,0 +1,271 @@
+﻿@model finaltest.Models.SanPham
+@using finaltest.Models
+@{
+    ViewBag.Title = "SPDetail";
+    Layout = "~/Views/_Home.cshtml";
+}
+
+<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- row -->
+        <div class="row">
+            <!-- Left colunm -->
+            <div class="column col-xs-12 col-sm-3" id="left_column">
+                <!-- block category -->
+                <div class="block left-module">
+                    <p class="title_block"><span class="fa fa-pagelines"></span> SẢN PHẨM</p>
+
+                    <div class="block_content">
+                        <!-- layered -->
+                        <div class="layered layered-category">
+                            <div class="layered-content">
+                                <ul class="tree-menu">
+
+                                    @{
+                                        List<LoaiSP> ds = (List<LoaiSP>)ViewBag.loaisp;
+                                        if (ds != null)
+                                        {
+                                            foreach (var v in ds)
+                                            {
+                                                <li><span></span><a href="/Home/getSPByLoaiSP/@v.MaLoai">@v.TenLoai</a></li>
+                                            }
+                                        }
+                                    }
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- ./layered -->
+                    </div>
+                </div>
+            </div>
+            <!-- ./left colunm -->
+            <!-- Center colunm-->
+            <div class="center_column col-xs-12 col-sm-9" id="center_column">
+                <!-- Product -->
+                <div id="product">
+                    <div class="primary-box row">
+                        <div class="pb-left-column col-xs-12 col-sm-6">
+                            <!-- product-imge-->
+                            <div class="product-image">
+                                <div class="product-full">
+                                    <img id="product-zoom" src="~/Asset/images/product-detail/@Model.Anh"
+                                         data-zoom-image="~/Asset/images/product-detail/@Model.Anh" />
+                                </div>
+                                <div class="product-img-thumb" id="gallery_01">
+                                    <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false"
+                                        data-margin="20" data-loop="true">
+                                        <li>
+                                            <a href="#"
+                                               data-image="~/Asset/images/product-detail/@Model.Anh"
+                                               data-zoom-image="~/Asset/images/product-detail/@Model.Anh">
+                                                <img id="product-zoom"
+                                                     src="~/Asset/images/product-detail/@Model.Anh" />
+                                            </a>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- product-imge-->
+                        </div>
+                        <div class="pb-right-column col-xs-12 col-sm-6">
+                            <h1 class="product-name">@Model.TenSP</h1>
+
+                            <div class="product-price-group">
+                                <span class="price product-price">
+                                    <span style="color: black">Giá: </span>@(string.Format("{0:#,##0}", Model.DonGia))
+                                </span>
+                                @*<span style="font-weight: bold">Giá: </span><span class="old-price">@(string.Format("{0:#,##0}", Model.DonGia))</span>*@
+                                @*<span class="discount">-30%</span>*@
+                            </div>
+                            <div class="info-orther">
+                                <p>Mã sản phẩm: @Model.MaSP</p>
+
+
+
+                            </div>
+                            <div class="product-desc">
+                                @Model.MoTa
+                            </div>
+                            <div class="form-option">
+
+                                <div class="attributes">
+                                    <div class="attribute-label">Số lượng:</div>
+                                    <div class="attribute-list product-qty">
+                                        <div class="qty">
+                                            <input id="option-product-qty" type="text" value="1">
+                                        </div>
+                                        <div class="btn-plus">
+                                            <a href="#" class="btn-plus-up">
+                                                <i class="fa fa-caret-up"></i>
+                                            </a>
+                                            <a href="#" class="btn-plus-down">
+                                                <i class="fa fa-caret-down"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-action">
+                                <div class="button-group">
+                                    <a class="add-item-to-cart btn-add-cart" title="Add to Cart" href="/Home/MuaHang/@Model.MaSP"
+                                       data-name=""
+                                       data-price="" data-image="spices/chilli_300x300.png"
+                                       data-product-code="">Thêm vào giỏ hàng</a>
+                                </div>
+                                <div class="button-group">
+                                    <a class="wishlist" href="#">
+                                        <i class="fa fa-heart-o"></i>
+                                        <br>Heart
+                                    </a>
+                                    <a class="compare" href="#">
+                                        <i class="fa fa-signal"></i>
+                                        <br>
+                                        Compare
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- tab product -->
+                    <div class="product-tab">
+                        <ul class="nav-tab" style="margin-bottom: 0px;">
+                            <li class="active">
+                                <a aria-expanded="false" data-toggle="tab" href="#product-detail">Chi tiết</a>
+                            </li>
+                            <li>
+                                <a aria-expanded="true" data-toggle="tab" href="#comment">Bình luận</a>
+                            </li>
+
+                        </ul>
+                        <div class="tab-container">
+                            <div id="product-detail" class="tab-panel active">
+                                <p>
+                                    @Model.MoTa
+                                </p>
+                            </div>
+                            <div id="comment" class="tab-panel">
+                                <div class="fb-comments" data-href="https://www.facebook.com/thuhoa.thuhoa.18"
+                                     data-width="100%" data-numposts="5"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./tab product -->
+                    <!-- box product -->
+
+                    <div class="page-product-box">
+                        <h2 class="page-heading">
+                            <span class="page-heading-title"> SẢN PHẨM TƯƠNG TỰ</span>
+                        </h2>
+                        <div class="product-featured clearfix">
+                            <div class="row">
+
+                                <div class="col-sm-12">
+                                    <div class="box-right">
+                                        <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+                                        <ul class="product-list">
+                                            @{
+                                                var ds1 = ViewBag.sptt as List<SanPham>;
+                                                if (ds1 != null)
+                                                {
+                                                    foreach (var v in ds1)
+                                                    {
+                                                        <li class="col-sm-4 product-item" style="width: 280px;">
+                                                            <div class="left-block">
+                                                                <a><img class="img-responsive" alt="product" src="~/Asset/images/product-detail/@v.Anh"></a>
+
+                                                                <div class="quick-view">
+                                                                    <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                                    <a title="Add to compare" class="compare" href="#"></a>
+                                                                    <a title="Quick view" href="~/Asset/images/product-detail/@v.Anh" class="search fancybox-button"></a>
+                                                                </div>
+                                                                <div class="add-to-cart">
+                                                                    <a class="add-item-to-cart" title="Add to Cart" onclick="muahang('@v.MaSP')" data-name="Spinach - 1kg" data-price="55000" data-image="vegetables/spinach_300x300.jpg" data-product-code="SP109">Thêm vào giỏ hàng</a>
+                                                                </div>
+                                                                <div class="bestseller"></div>
+                                                            </div>
+                                                            <div class="right-block">
+                                                                <h5 class="product-name"><a href="#">@v.TenSP</a></h5>
+
+                                                                <div class="content_price">
+                                                                    <span class="price product-price"><span style="color: black">Giá bán:</span> @string.Format("{0:#,##0}", v.DonGia)</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    }
+                                                }
+                                            }
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    @* finish *@
+                    @*<div class="page-product-box">
+                            <h2 class="page-heading">
+                                <span class="page-heading-title"> SẢN PHẨM TƯƠNG TỰ abc</span>
+                            </h2>
+                            <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true"
+                                data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true"
+                                data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage" style="transform: translate3d(-900px, 0px, 0px); transition: all 0s ease 0s; width: 3300px;">
+                                        <div class="owl-item cloned" style="width: 270px; margin-right: 30px;">
+                                         @{
+                                             var ds1 = ViewBag.sptt as List<SanPham>;
+                                             if (ds1 != null)
+                                             {
+                                                 foreach (var v in ds1)
+                                                 {
+                                               <li>
+                                                <div class="product-container">
+                                                    <div class="left-block">
+                                                        <a><img class="img-responsive" alt="product" src="images/product-detail/@v.Anh"></a>
+
+                                                        <div class="quick-view">
+                                                            <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                            <a title="Add to compare" class="compare" href="#"></a>
+                                                            <a title="Quick view" href="images/product-detail/@v.Anh" class="search fancybox-button"></a>
+                                                        </div>
+                                                        <div class="add-to-cart">
+                                                            <a class="add-item-to-cart" title="Add to Cart" href="#" data-name="Potatos - 1kg" data-price="55000" data-image="potato_300x300.jpg" data-product-code="GPL109">Thêm vào giỏ hàng</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="right-block">
+                                                        <h5 class="product-name"><a href="#">@v.TenSP</a></h5>
+
+                                                        <div class="content_price">
+                                                            <span class="price product-price"><span style="color: black">Giá bán:</span> @string.Format("{0:#,##0}",v.DonGia)</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                                 }
+                                             }
+                                        }
+                                        </div>
+                                    </div>
+                                </div>
+                        </ul>
+                        </div>*@
+                    <!-- ./box product -->
+                    <!-- box product -->
+                    <!-- ./box product -->
+                </div>
+                <!-- Product -->
+            </div>
+            <!-- ./ Center colunm -->
+        </div>
+        <!-- ./row-->
+    </div>
+</div>
+
+

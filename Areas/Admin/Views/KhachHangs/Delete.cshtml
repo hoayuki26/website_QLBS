@@ -1,0 +1,77 @@
+﻿@model finaltest.Areas.Admin.Models.KhachHang
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/_Admin.cshtml";
+}
+
+<div id="sidebar-collapse" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+    </div>
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="http://localhost:51363/Admin/Admin/Index"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+            <li class="active">khách hàng</li>
+        </ol>
+    </div>
+    <h3><span id="message"></span></h3>
+    <div class="row">
+        <div class="col-lg-12">
+            <form action="" method="post">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="col-md-8">Delete khách hàng</div>
+                    </div>
+                    <h3><span id="message"></span></h3>
+                    <h3>Bạn có chắc chắn xóa không?</h3>
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Hoten)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Hoten)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Email)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.SDT)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.SDT)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DiaChi)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DiaChi)
+                            </dd>
+
+                        </dl>
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Delete" class="btn btn-default" /> |
+                                @Html.ActionLink("Back to List", "Index")
+                            </div>
+                        }
+                    </div>
+                    </div>
+</form>
+</div>
+</div>
+</div>

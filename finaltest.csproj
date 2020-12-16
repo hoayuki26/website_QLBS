@@ -1,0 +1,736 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8BB9DF1F-5CAB-4AB5-8292-0B7245C9771F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>finaltest</RootNamespace>
+    <AssemblyName>finaltest</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Assets\css\bootstrap-table.css" />
+    <Content Include="Areas\Assets\css\bootstrap-theme.css" />
+    <Content Include="Areas\Assets\css\bootstrap-theme.min.css" />
+    <Content Include="Areas\Assets\css\bootstrap.css" />
+    <Content Include="Areas\Assets\css\bootstrap.min.css" />
+    <Content Include="Areas\Assets\css\datepicker.css" />
+    <Content Include="Areas\Assets\css\datepicker3.css" />
+    <Content Include="Areas\Assets\css\styles.css" />
+    <Content Include="Areas\Assets\js\bootstrap-datepicker.js" />
+    <Content Include="Areas\Assets\js\bootstrap-table.js" />
+    <Content Include="Areas\Assets\js\bootstrap.js" />
+    <Content Include="Areas\Assets\js\bootstrap.min.js" />
+    <Content Include="Areas\Assets\js\chart-data.js" />
+    <Content Include="Areas\Assets\js\chart.min.js" />
+    <Content Include="Areas\Assets\js\easypiechart-data.js" />
+    <Content Include="Areas\Assets\js\easypiechart.js" />
+    <Content Include="Areas\Assets\js\html5shiv.min.js" />
+    <Content Include="Areas\Assets\js\jquery-1.11.1.min.js" />
+    <Content Include="Areas\Assets\js\lumino.glyphs.js" />
+    <Content Include="Areas\Assets\js\respond.min.js" />
+    <Content Include="Asset\css\aboutus.css" />
+    <Content Include="Asset\css\animate.css" />
+    <Content Include="Asset\css\green.css" />
+    <Content Include="Asset\css\login.css" />
+    <Content Include="Asset\css\reset.css" />
+    <Content Include="Asset\css\responsive.css" />
+    <Content Include="Asset\css\style-setting.css" />
+    <Content Include="Asset\css\style.css" />
+    <Content Include="Asset\css\style_frm_dkdn.css" />
+    <Content Include="Asset\css\switcher.css" />
+    <Content Include="Asset\data\1.png" />
+    <Content Include="Asset\data\10.png" />
+    <Content Include="Asset\data\11.png" />
+    <Content Include="Asset\data\12.png" />
+    <Content Include="Asset\data\13.png" />
+    <Content Include="Asset\data\14.png" />
+    <Content Include="Asset\data\15.png" />
+    <Content Include="Asset\data\16.png" />
+    <Content Include="Asset\data\17.png" />
+    <Content Include="Asset\data\18.png" />
+    <Content Include="Asset\data\19.png" />
+    <Content Include="Asset\data\2.png" />
+    <Content Include="Asset\data\20.png" />
+    <Content Include="Asset\data\21.png" />
+    <Content Include="Asset\data\22.png" />
+    <Content Include="Asset\data\3.png" />
+    <Content Include="Asset\data\4.png" />
+    <Content Include="Asset\data\5.png" />
+    <Content Include="Asset\data\6.png" />
+    <Content Include="Asset\data\7.png" />
+    <Content Include="Asset\data\8.png" />
+    <Content Include="Asset\data\9.png" />
+    <Content Include="Asset\data\about-us.jpg" />
+    <Content Include="Asset\data\avatar.png.jpg" />
+    <Content Include="Asset\data\bido.jpg" />
+    <Content Include="Asset\data\cate-readmore-arrow.png" />
+    <Content Include="Asset\data\digital.png" />
+    <Content Include="Asset\data\electronic.png" />
+    <Content Include="Asset\data\fashion.png" />
+    <Content Include="Asset\data\furniture.png" />
+    <Content Include="Asset\data\gucci.png" />
+    <Content Include="Asset\data\icon-digital.png" />
+    <Content Include="Asset\data\icon-electronic.png" />
+    <Content Include="Asset\data\icon-fashion.png" />
+    <Content Include="Asset\data\icon-furniture.png" />
+    <Content Include="Asset\data\icon-jewelry.png" />
+    <Content Include="Asset\data\icon-s1.png" />
+    <Content Include="Asset\data\icon-s2.png" />
+    <Content Include="Asset\data\icon-s3.png" />
+    <Content Include="Asset\data\icon-s4.png" />
+    <Content Include="Asset\data\icon-s5.png" />
+    <Content Include="Asset\data\icon-s6.png" />
+    <Content Include="Asset\data\icon-sports.png" />
+    <Content Include="Asset\data\jewelry.png" />
+    <Content Include="Asset\images\aboutus\b.philosophy.jpg" />
+    <Content Include="Asset\images\aboutus\corevalue.jpg" />
+    <Content Include="Asset\images\aboutus\history.jpg" />
+    <Content Include="Asset\images\aboutus\mission.jpg" />
+    <Content Include="Asset\images\aboutus\vision.jpg" />
+    <Content Include="Asset\images\accordion-plusminus.png" />
+    <Content Include="Asset\images\add-cart.png" />
+    <Content Include="Asset\images\bar.png" />
+    <Content Include="Asset\images\best-seller.png" />
+    <Content Include="Asset\images\bg-top-banner.jpg" />
+    <Content Include="Asset\images\btn-close.png" />
+    <Content Include="Asset\images\cart-icon.png" />
+    <Content Include="Asset\images\cart-icon4.png" />
+    <Content Include="Asset\images\cart.png" />
+    <Content Include="Asset\images\cat-br3.png" />
+    <Content Include="Asset\images\checkbox.png" />
+    <Content Include="Asset\images\checked.png" />
+    <Content Include="Asset\images\chuc.jpg" />
+    <Content Include="Asset\images\coming-soon-stickers.png" />
+    <Content Include="Asset\images\commerce-tag.png" />
+    <Content Include="Asset\images\del-goods.png" />
+    <Content Include="Asset\images\delete_icon.png" />
+    <Content Include="Asset\images\discount.png" />
+    <Content Include="Asset\images\down.png" />
+    <Content Include="Asset\images\dropdow.png" />
+    <Content Include="Asset\images\dropdown.png" />
+    <Content Include="Asset\images\email.png" />
+    <Content Include="Asset\images\en.jpg" />
+    <Content Include="Asset\images\favicon.ico" />
+    <Content Include="Asset\images\fb-login-button-big.png" />
+    <Content Include="Asset\images\fb.jpg" />
+    <Content Include="Asset\images\featured2.png" />
+    <Content Include="Asset\images\floor-elevator.png" />
+    <Content Include="Asset\images\fr.jpg" />
+    <Content Include="Asset\images\gg-login-button-big.png" />
+    <Content Include="Asset\images\grid-view-bg.png" />
+    <Content Include="Asset\images\health-new.jpg" />
+    <Content Include="Asset\images\heart-icon.png" />
+    <Content Include="Asset\images\hoa.jpg" />
+    <Content Include="Asset\images\hong.jpg" />
+    <Content Include="Asset\images\icon-angle-right.png" />
+    <Content Include="Asset\images\icon-cart-option2.png" />
+    <Content Include="Asset\images\icon-cart-round.png" />
+    <Content Include="Asset\images\icon-cart-round5.png" />
+    <Content Include="Asset\images\icon-cart-round6.png" />
+    <Content Include="Asset\images\icon-cart-topbar7.png" />
+    <Content Include="Asset\images\icon-cart7.png" />
+    <Content Include="Asset\images\icon-clock.png" />
+    <Content Include="Asset\images\icon-compare-round.png" />
+    <Content Include="Asset\images\icon-compare-round5.png" />
+    <Content Include="Asset\images\icon-compare-round6.png" />
+    <Content Include="Asset\images\icon-compare7.png" />
+    <Content Include="Asset\images\icon-heart-round.png" />
+    <Content Include="Asset\images\icon-heart-round5.png" />
+    <Content Include="Asset\images\icon-heart-round6.png" />
+    <Content Include="Asset\images\icon-new7.png" />
+    <Content Include="Asset\images\icon-sale7.png" />
+    <Content Include="Asset\images\icon-serach7.png" />
+    <Content Include="Asset\images\icon-withlist7.png" />
+    <Content Include="Asset\images\icon_books-stack-of-three.png" />
+    <Content Include="Asset\images\icon_fish.png" />
+    <Content Include="Asset\images\icon_like.png" />
+    <Content Include="Asset\images\icon_magnifier-and-mark-help.png" />
+    <Content Include="Asset\images\icon_paper-plane.png" />
+    <Content Include="Asset\images\icon_remove.png" />
+    <Content Include="Asset\images\icon_vegetable.png" />
+    <Content Include="Asset\images\imagelogo.jpg" />
+    <Content Include="Asset\images\kak.png" />
+    <Content Include="Asset\images\kak2.png" />
+    <Content Include="Asset\images\kak3.png" />
+    <Content Include="Asset\images\latest-deal-title.png" />
+    <Content Include="Asset\images\list-view-bg.png" />
+    <Content Include="Asset\images\logo.png" />
+    <Content Include="Asset\images\logosach.jpg" />
+    <Content Include="Asset\images\logosach1.jpg" />
+    <Content Include="Asset\images\log_fb.png" />
+    <Content Include="Asset\images\log_gg.png" />
+    <Content Include="Asset\images\news\health-new.jpg" />
+    <Content Include="Asset\images\news\news1.jpg" />
+    <Content Include="Asset\images\news\news10_300x300.jpg" />
+    <Content Include="Asset\images\news\news1_300x300.jpg" />
+    <Content Include="Asset\images\news\news2.jpg" />
+    <Content Include="Asset\images\news\news2_300x300.jpg" />
+    <Content Include="Asset\images\news\news3.jpg" />
+    <Content Include="Asset\images\news\news3_300x300.jpg" />
+    <Content Include="Asset\images\news\news4.jpg" />
+    <Content Include="Asset\images\news\news4_300x300.jpg" />
+    <Content Include="Asset\images\news\news5.jpg" />
+    <Content Include="Asset\images\news\news5_300x300.jpg" />
+    <Content Include="Asset\images\news\news6.jpg" />
+    <Content Include="Asset\images\news\news6_300x300.jpg" />
+    <Content Include="Asset\images\news\news7.jpg" />
+    <Content Include="Asset\images\news\news7_300x300.jpg" />
+    <Content Include="Asset\images\news\news8_300x300.jpg" />
+    <Content Include="Asset\images\news\news9_300x300.jpg" />
+    <Content Include="Asset\images\news\shutterstock_275793086-676x450.jpg" />
+    <Content Include="Asset\images\news\shutterstock_440115364-676x450.jpg" />
+    <Content Include="Asset\images\next.png" />
+    <Content Include="Asset\images\next7.png" />
+    <Content Include="Asset\images\nhinh.jpg" />
+    <Content Include="Asset\images\nhung.jpg" />
+    <Content Include="Asset\images\notify-right-6.png" />
+    <Content Include="Asset\images\notify-right-7.png" />
+    <Content Include="Asset\images\notify-right-red.png" />
+    <Content Include="Asset\images\notify-right.png" />
+    <Content Include="Asset\images\notify.png" />
+    <Content Include="Asset\images\parallax-content-1.png" />
+    <Content Include="Asset\images\parallax-content-2.png" />
+    <Content Include="Asset\images\parallax-content.png" />
+    <Content Include="Asset\images\parallax-content2-2.png" />
+    <Content Include="Asset\images\phone.png" />
+    <Content Include="Asset\images\policy\new-order-image.jpg" />
+    <Content Include="Asset\images\Preloader_4.gif" />
+    <Content Include="Asset\images\prev.png" />
+    <Content Include="Asset\images\prev7.png" />
+    <Content Include="Asset\images\price-percent-br.png" />
+    <Content Include="Asset\images\product-detail\beans\blackbeans_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\beans\blackbeans_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\beans\blackeyepeas_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\beans\blackeyepeas_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\beans\chickpeas_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\beans\chickpeas_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\beans\lentils_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\beans\lentils_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\beans\mungbeans_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\beans\mungbeans_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\beans\pintobeans_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\beans\pintobeans_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\beans\redbeans_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\beans\redbeans_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\beans\soybeans_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\beans\soybeans_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\beans\whitebeans_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\beans\whitebeans_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\barley_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\barley_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\corn_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\corn_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\millet_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\millet_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\oat_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\oat_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\riceblack_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\riceblack_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\ricered_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\ricered_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\ricewhite_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\ricewhite_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\rye_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\rye_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\wheat_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\cereals\wheat_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\avocado_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\avocado_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\banana_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\banana_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\benxe.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\berries_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\berries_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\duongbang.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\grapes_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\grapes_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\holy.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\lychee_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\lychee_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\mango_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\mango_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\orange_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\orange_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\papaya_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\papaya_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\pineapple_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\pineapple_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\ngontin1.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\ngontinh2.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\almond_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\almond_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\blacksesame_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\blacksesame_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\cashews_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\cashew_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\lotusseed_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\lotusseed_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\peanut_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\peanut_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\pistachio_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\pistachio_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\pumpkinseed_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\pumpkinseed_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\sunflowerseeds_300x300.jpeg" />
+    <Content Include="Asset\images\product-detail\nuts\sunflowerseeds_600x600.jpeg" />
+    <Content Include="Asset\images\product-detail\nuts\walnut_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\nuts\walnut_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\chilli_300x300.png" />
+    <Content Include="Asset\images\product-detail\Ngontinh\chilli_600x600.png" />
+    <Content Include="Asset\images\product-detail\Ngontinh\cinnamon_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\cinnamon_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\garlic_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\garlic_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\ginger_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\ginger_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\misopaste_300x300.jpeg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\misopaste_600x600.jpeg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\pepper_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\pepper_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\salt_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\salt_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\sesameoil_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\sesameoil_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\soysauce_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Ngontinh\soysauce_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\tieuthuyet1.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\tieuthuyet2.jpg.jpg" />
+    <Content Include="Asset\images\product-detail\Tieuthuyet\tieuthuyet3.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\Asparagus1_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\Asparagus1_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\asparagus_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\asparagus_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\broccoli_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\broccoli_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\cabbage_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\cabbage_400x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\chayote_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\chayote_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\Conan.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\Conan_400x400.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\cucumber_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\cucumber_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\doremon.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\greenpumpkin_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\greenpumpkin_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\harry.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\kale_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\kale_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\malabar spinach_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\malabarspinach_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\mustardspinach_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\mustardspinach_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\pokchoy_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\pokchoy_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\potato_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\potato_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\radish_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\radish_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\romaine_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\romaine_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\spinach_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\spinach_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\sweetpotato_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\sweetpotato_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\taro_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\taro_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\tomato_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\tomato_600x600.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\watercress_300x300.jpg" />
+    <Content Include="Asset\images\product-detail\Truyentranh\watercress_600x600.jpg" />
+    <Content Include="Asset\images\qick-view7.png" />
+    <Content Include="Asset\images\r7.png" />
+    <Content Include="Asset\images\range-icon.png" />
+    <Content Include="Asset\images\sale-bg.png" />
+    <Content Include="Asset\images\search.png" />
+    <Content Include="Asset\images\slide\img1.jpg" />
+    <Content Include="Asset\images\slide\img2.jpg" />
+    <Content Include="Asset\images\slide\img3.jpg" />
+    <Content Include="Asset\images\slide\img4.jpg" />
+    <Content Include="Asset\images\slide\img5.jpg" />
+    <Content Include="Asset\images\slide\img6.jpg" />
+    <Content Include="Asset\images\slide\slide1.jpg.jpg" />
+    <Content Include="Asset\images\slide\slide2.jpg.jpg" />
+    <Content Include="Asset\images\slide\slide3.jpg.jpg" />
+    <Content Include="Asset\images\slide\slide4.jpg" />
+    <Content Include="Asset\images\slide\slide5.jpg" />
+    <Content Include="Asset\images\slide\slide6.jpg" />
+    <Content Include="Asset\images\slide\slide7.jpg" />
+    <Content Include="Asset\images\social\aboutme.png" />
+    <Content Include="Asset\images\social\amazon.png" />
+    <Content Include="Asset\images\social\behance.png" />
+    <Content Include="Asset\images\social\blogger.png" />
+    <Content Include="Asset\images\social\deviantart.png" />
+    <Content Include="Asset\images\social\dribbble.png" />
+    <Content Include="Asset\images\social\dropbox.png" />
+    <Content Include="Asset\images\social\evernote.png" />
+    <Content Include="Asset\images\social\facebook.png" />
+    <Content Include="Asset\images\social\flickr.png" />
+    <Content Include="Asset\images\social\forrst.png" />
+    <Content Include="Asset\images\social\foursquare.png" />
+    <Content Include="Asset\images\social\github.png" />
+    <Content Include="Asset\images\social\googleplus.png" />
+    <Content Include="Asset\images\social\gravatar.png" />
+    <Content Include="Asset\images\social\instagram.png" />
+    <Content Include="Asset\images\social\jolicloud.png" />
+    <Content Include="Asset\images\social\klout.png" />
+    <Content Include="Asset\images\social\last-fm.png" />
+    <Content Include="Asset\images\social\linkedin.png" />
+    <Content Include="Asset\images\social\myspace.png" />
+    <Content Include="Asset\images\social\picasa.png" />
+    <Content Include="Asset\images\social\pintrest.png" />
+    <Content Include="Asset\images\social\policy-new-order-image.jpg" />
+    <Content Include="Asset\images\social\quora.png" />
+    <Content Include="Asset\images\social\reddit.png" />
+    <Content Include="Asset\images\social\rss.png" />
+    <Content Include="Asset\images\social\skype.png" />
+    <Content Include="Asset\images\social\spotify.png" />
+    <Content Include="Asset\images\social\stumbleupon.png" />
+    <Content Include="Asset\images\social\tumblr.png" />
+    <Content Include="Asset\images\social\twitter.png" />
+    <Content Include="Asset\images\social\vimeo.png" />
+    <Content Include="Asset\images\social\vk.png" />
+    <Content Include="Asset\images\social\wordpress.png" />
+    <Content Include="Asset\images\social\xing.png" />
+    <Content Include="Asset\images\social\yahoo.png" />
+    <Content Include="Asset\images\social\youtube.png" />
+    <Content Include="Asset\images\up.png" />
+    <Content Include="Asset\images\user-icon.png" />
+    <Content Include="Asset\images\user.png" />
+    <Content Include="Asset\images\yuki.jpg" />
+    <Content Include="Asset\images\yuki.jpg.jpg" />
+    <Content Include="Asset\images\yukii.jpg" />
+    <Content Include="Asset\js\checkout.js" />
+    <Content Include="Asset\js\contact-us.js" />
+    <Content Include="Asset\js\jquery.actual.min.js" />
+    <Content Include="Asset\js\layout.js" />
+    <Content Include="Asset\js\login.js" />
+    <Content Include="Asset\js\option4.js" />
+    <Content Include="Asset\js\shoppingCart.js" />
+    <Content Include="Asset\js\theme-script.js" />
+    <Content Include="Asset\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Asset\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Asset\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Asset\lib\countdown\jquery.countdown.js" />
+    <Content Include="Asset\lib\countdown\jquery.plugin.js" />
+    <Content Include="Asset\lib\fancyBox\blank.gif" />
+    <Content Include="Asset\lib\fancyBox\CHANGELOG.txt" />
+    <Content Include="Asset\lib\fancyBox\demo\1_b.jpg" />
+    <Content Include="Asset\lib\fancyBox\demo\1_s.jpg" />
+    <Content Include="Asset\lib\fancyBox\demo\2_b.jpg" />
+    <Content Include="Asset\lib\fancyBox\demo\2_s.jpg" />
+    <Content Include="Asset\lib\fancyBox\demo\3_b.jpg" />
+    <Content Include="Asset\lib\fancyBox\demo\3_s.jpg" />
+    <Content Include="Asset\lib\fancyBox\demo\4_b.jpg" />
+    <Content Include="Asset\lib\fancyBox\demo\4_s.jpg" />
+    <Content Include="Asset\lib\fancyBox\demo\5_b.jpg" />
+    <Content Include="Asset\lib\fancyBox\demo\5_s.jpg" />
+    <Content Include="Asset\lib\fancyBox\demo\ajax.txt" />
+    <Content Include="Asset\lib\fancyBox\demo\iframe.html" />
+    <Content Include="Asset\lib\fancyBox\demo\index.html" />
+    <Content Include="Asset\lib\fancyBox\fancybox_loading%402x.gif" />
+    <Content Include="Asset\lib\fancyBox\fancybox_loading.gif" />
+    <Content Include="Asset\lib\fancyBox\fancybox_overlay.png" />
+    <Content Include="Asset\lib\fancyBox\fancybox_sprite%402x.png" />
+    <Content Include="Asset\lib\fancyBox\fancybox_sprite.png" />
+    <Content Include="Asset\lib\fancyBox\jquery.fancybox.css" />
+    <Content Include="Asset\lib\fancyBox\jquery.fancybox.js" />
+    <Content Include="Asset\lib\fancyBox\lib\jquery-1.8.2.min.js" />
+    <Content Include="Asset\lib\fancyBox\lib\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="Asset\lib\fancyBox\README.txt" />
+    <Content Include="Asset\lib\fancyBox\source\blank.gif" />
+    <Content Include="Asset\lib\fancyBox\source\fancybox_loading.gif" />
+    <Content Include="Asset\lib\fancyBox\source\fancybox_overlay.png" />
+    <Content Include="Asset\lib\fancyBox\source\fancybox_sprite.png" />
+    <Content Include="Asset\lib\fancyBox\source\helpers\fancybox_buttons.png" />
+    <Content Include="Asset\lib\fancyBox\source\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Asset\lib\fancyBox\source\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Asset\lib\fancyBox\source\helpers\jquery.fancybox-media.js" />
+    <Content Include="Asset\lib\fancyBox\source\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Asset\lib\fancyBox\source\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Asset\lib\fancyBox\source\jquery.fancybox.css" />
+    <Content Include="Asset\lib\fancyBox\source\jquery.fancybox.js" />
+    <Content Include="Asset\lib\fancyBox\source\jquery.fancybox.pack.js" />
+    <Content Include="Asset\lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Asset\lib\font-awesome\fonts\fontawesome-webfonte0a5.svg" />
+    <Content Include="Asset\lib\jquery-migrate.min.js" />
+    <Content Include="Asset\lib\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Asset\lib\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Asset\lib\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Asset\lib\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Asset\lib\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Asset\lib\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Asset\lib\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Asset\lib\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Asset\lib\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Asset\lib\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Asset\lib\jquery-ui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Asset\lib\jquery-ui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Asset\lib\jquery-ui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Asset\lib\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Asset\lib\jquery-ui\jquery-ui.css" />
+    <Content Include="Asset\lib\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Asset\lib\jquery.bxslider\images\bx_loader.gif" />
+    <Content Include="Asset\lib\jquery.bxslider\images\controls.png" />
+    <Content Include="Asset\lib\jquery.bxslider\jquery.bxslider.css" />
+    <Content Include="Asset\lib\jquery.bxslider\jquery.bxslider.min.js" />
+    <Content Include="Asset\lib\jquery.elevatezoom.js" />
+    <Content Include="Asset\lib\jquery\jquery-1.11.2.min.js" />
+    <Content Include="Asset\lib\owl.carousel\owl.carousel.css" />
+    <Content Include="Asset\lib\owl.carousel\owl.carousel.min.js" />
+    <Content Include="Asset\lib\owl.carousel\owl.video.play.html" />
+    <Content Include="Asset\lib\select2\css\select2.min.css" />
+    <Content Include="Asset\lib\select2\js\select2.min.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\ai.0.15.0-build58334.js" />
+    <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Asset\images\slide\Thumbs.db" />
+    <Content Include="Asset\images\social\Thumbs.db" />
+    <Content Include="Asset\images\Thumbs.db" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSPs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSPs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSPs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSPs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSPs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HDXes\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HDXes\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HDXes\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HDXes\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HDXes\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\_Admin.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Assets\css\bootstrap-theme.css.map" />
+    <Content Include="Areas\Assets\css\bootstrap.css.map" />
+    <Content Include="Areas\Admin\Views\SanPhams\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Index.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HDXesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhachHangsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoaiSPsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanPhamsController.cs" />
+    <Compile Include="Areas\Admin\Models\HDX.cs" />
+    <Compile Include="Areas\Admin\Models\KhachHang.cs" />
+    <Compile Include="Areas\Admin\Models\LoaiSP.cs" />
+    <Compile Include="Areas\Admin\Models\Model1.cs" />
+    <Compile Include="Areas\Admin\Models\SanPham.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dataconnection.cs" />
+    <Compile Include="Models\DatHang.cs" />
+    <Compile Include="Models\DatHangDetail.cs" />
+    <Compile Include="Models\DatHangDetailModel.cs" />
+    <Compile Include="Models\DatHangModel.cs" />
+    <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Models\LoaiSP.cs" />
+    <Compile Include="Models\LoaiSPModel.cs" />
+    <Compile Include="Models\SanPham.cs" />
+    <Compile Include="Models\SanPhamModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Asset\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Asset\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Asset\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Asset\lib\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Asset\lib\bootstrap\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Asset\lib\fancyBox\CHANGELOG.md" />
+    <Content Include="Asset\lib\fancyBox\README.md" />
+    <Content Include="Asset\lib\fancyBox\_gitattributes" />
+    <Content Include="Asset\lib\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Asset\lib\font-awesome\fonts\fontawesome-webfonte0a5.eot" />
+    <Content Include="Asset\lib\font-awesome\fonts\fontawesome-webfonte0a5.ttf" />
+    <Content Include="Asset\lib\font-awesome\fonts\fontawesome-webfonte0a5.woff" />
+    <Content Include="Asset\lib\font-awesome\fonts\fontawesome-webfonte0a5.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Views\_Home.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\SPDetail.cshtml" />
+    <Content Include="Views\Home\getSPByLoaiSP.cshtml" />
+    <Content Include="Views\Home\LoaiSP.cshtml" />
+    <Content Include="Views\Home\timkiemsp.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51363</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51363/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

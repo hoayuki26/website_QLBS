@@ -1,0 +1,76 @@
+﻿@model IEnumerable<finaltest.Areas.Admin.Models.LoaiSP>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/_Admin.cshtml";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div id="sidebar-collapse" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+    </div>
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="http://localhost:51363/Admin/Admin/Index"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+            <li class="active"> Loại sản phẩm</li>
+        </ol>
+    </div><!--row-->
+    <h3><span id="message"></span></h3>
+    <div class="row">
+        <div class="col-lg-12">
+            <form action="" method="post">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="col-md-8">Quản lý loại sản phẩm</div>
+                        <div class="col-md-4 text-right">
+                            <a href="http://localhost:51363/Admin/LoaiSPs/Create" class="btn btn-primary" onclick="themloaisp()">Thêm loại sản phẩm</a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <h3><span id="message"></span></h3>
+                            <table class="table table-bordered table-striped" id="example" style="width:100%">
+                                <thead>
+                                    <tr class="info">
+                                        <th style="text-align:center">
+                                            @*@Html.DisplayNameFor(model => model.TenLoai)*@
+                                            <label>Tên loại</label>
+                                        </th>
+                                        <th style="text-align:center">
+                                            @*@Html.DisplayNameFor(model => model.Ghichu)*@
+                                            <label>Ghi chú</label>
+                                        </th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TenLoai)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Ghichu)
+                                            </td>
+                                            @*<td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaLoai }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.MaLoai }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaLoai })
+                </td>*@
+                                            <td><a class="btn btn-warning" href="http://localhost:51363/Admin/LoaiSPs/Edit/@item.MaLoai"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                                            <td><a class="btn btn-info" href="http://localhost:51363/Admin/LoaiSPs/Details/@item.MaLoai"><i class="glyphicon glyphicon-eye-open"></i></a></td>
+                                            <td><a class="btn btn-danger" href="http://localhost:51363/Admin/LoaiSPs/Delete/@item.MaLoai"><i class="glyphicon glyphicon-trash"></i></a></td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
