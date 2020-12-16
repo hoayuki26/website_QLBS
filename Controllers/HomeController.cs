@@ -14,8 +14,7 @@ namespace finaltest.Controllers
         // GET: Home
         // GET: Home
         //Khởi tạo các đối tượng
-        //Khai báo các đối tượng
-        //Hello
+        
         SanPhamModel dbsp = new SanPhamModel();
         LoaiSPModel dblsp = new LoaiSPModel();
         DatHangModel dbdh = new DatHangModel();
